@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color:rgb(27, 27, 27);
 }
 
 code {
@@ -20,6 +21,15 @@ code {
 .column {
   display: flex;
   flex-direction: column;
+}
+
+.clickable {
+  transition: opacity 0.15s;
+}
+
+.clickable:hover {
+  opacity: 0.8;
+  cursor: pointer;
 }
 
 button {
