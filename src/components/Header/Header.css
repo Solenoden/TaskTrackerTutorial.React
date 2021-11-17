@@ -1,0 +1,22 @@
+header {
+    justify-content: space-between;
+}
+
+h1 {
+    font-weight: 500;
+    color: rgb(27, 27, 27);
+}
+
+button {
+    background-color: rgb(21, 134, 21);
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin: auto 0;
+    transition: opacity 0.15s;
+}
+
+button:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
