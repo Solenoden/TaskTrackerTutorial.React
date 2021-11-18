@@ -1,0 +1,25 @@
+.form-control {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.form-control label {
+    margin-bottom: 5px;
+}
+
+.form-control-checkbox {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+}
+
+.form-control-checkbox input {
+    position: relative;
+    top: 3px;
+    margin-right: 8px;
+}
+
+button {
+    margin: 25px 0;
+}

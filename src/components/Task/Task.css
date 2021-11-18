@@ -1,0 +1,24 @@
+.task {
+    background-color: #e7e7e7;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    border-left: 10px solid #e7e7e7;
+}
+
+.task:last-child {
+    margin-bottom: 0;
+}
+
+.task.reminder {
+    border-left: 10px solid rgb(21, 134, 21);
+}
+
+svg {
+    color: rgb(255, 50, 50);
+    margin: auto 0 auto auto;
+}
+
+span.title {
+    font-weight: 600;
+}

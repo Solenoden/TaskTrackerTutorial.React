@@ -1,23 +1,41 @@
-import logo from './logo.svg';
 import './App.css';
+import { Header } from './components/Header/Header';
+import { TaskList } from './components/Task-List/TaskList';
+import { AddTask } from './components/AddTask/AddTask';
+import React, { useState } from 'react'
+import { StateService } from './services/state-service'
 
 function App() {
+  const [tasks, setTasks] = useState(StateService.getTasks())
+  const [shouldShowAddTask, setShouldShowAddTask] = useState(false)
+
+  function toggleReminder(taskId) {
+    setTasks(tasks.map(task => {
+        if (task.id === taskId) task.shouldSendReminder = !task.shouldSendReminder
+        return task
+    }))
+  }
+
+  function deleteTask(taskId) {
+    setTasks(tasks.filter(task => task.id !== taskId))
+  }
+
+  function addTask(task) {
+    const id = Math.floor(Math.random() * 100000) + 1
+    task = { id, ...task }
+    setTasks([...tasks, task])
+    onShowAddTask()
+  }
+
+  function onShowAddTask() {
+    setShouldShowAddTask(!shouldShowAddTask)
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <Header onShowAddTask={onShowAddTask} />
+      {shouldShowAddTask ? <AddTask onAdd={addTask}/> : ''}
+      <TaskList tasks={tasks} deleteTask={deleteTask} toggleReminder={toggleReminder} />
     </div>
   );
 }
